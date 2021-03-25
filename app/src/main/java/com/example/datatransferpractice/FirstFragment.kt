@@ -16,7 +16,7 @@ class FirstFragment : Fragment(R.layout.fragment_first) {
 
     private lateinit var button : Button
     // activity 에 맞는 view model 객체 생성
-//    val mainViewModel by activityViewModels<MainViewModel>()
+    val mainViewModel by activityViewModels<MainViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,6 +29,8 @@ class FirstFragment : Fragment(R.layout.fragment_first) {
         button = view.findViewById(R.id.button)
 
         button.setOnClickListener {
+            // view model 객체에 데이터 선언
+            mainViewModel.data = "Hello"
             findNavController().navigate(R.id.action_firstFragment_to_secondFragment)
         }
 
